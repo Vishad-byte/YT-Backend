@@ -18,7 +18,7 @@ const app = express()
 ( async () => {
     try {
         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-        app.on("Error", (error) => {
+        app.on("Error", (error) => {                    //database is connected but still it is showing certain error(app mei problem)
             console.log("ERROR:", error);
             throw error
         })
