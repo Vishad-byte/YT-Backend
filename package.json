@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "to learn backend",
   "main": "index.js",
-  "type": "module",
+  "type": "module",             
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "keywords": [
     "javascript",
