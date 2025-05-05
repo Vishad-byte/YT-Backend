@@ -1,10 +1,21 @@
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-
+import app from "./app.js";
 dotenv.config({path: './env'})                            //read devScript in package.json file
 
 
-connectDB();
+
+connectDB()                                                 //will return a promise
+.then( () => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`Server is running on port ${process.env.PORT}`)});
+        app.on("Error", (err) => {
+            console.error("Express application error:", err)
+        })
+})
+.catch( (err) => {
+    console.error("MOngo db connection failed", err);
+})
 
 
 
