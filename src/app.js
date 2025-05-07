@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 //.use is used for configurations
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,                      //allows domains to requests to backend 
+    origin: process.env.CORS_ORIGIN,                      //allows certain domains to requests to backend 
     credentials: true                          
 }))
 
