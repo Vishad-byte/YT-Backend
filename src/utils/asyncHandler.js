@@ -1,3 +1,5 @@
+//              MIDDLEWARE WRAPPER FUNCTION
+
 const asyncHandler = (requestHandler) => {
      return (req, res, next) => {
         Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
@@ -8,7 +10,7 @@ export {asyncHandler}
 
 // const asyncHandler = () => {}
 // const asyncHandler = (func) => {}
-// const asyncHandler = (func) => {() => {}}
+// const   = (func) => {() => {}}
 // const asyncHandler = (func) => async() => {}
 
 //CREATING A WRAPPER FUNCTION WHICH CAN BE USED ANYWHERE AND MAKE OUR WORK EASIER
