@@ -72,5 +72,28 @@ const registerUser = asyncHandler( async (req , res) => {
 
 } )
 
+const loginUser = asyncHandler(async (req, res) => {
+    /*
+    1. get login details from the user (req body)
+    2. check if the details entered match the user data in the DB which was earlier registered(username or email)
+    3. find the user
+    4. if user present then password check
+    5. generate access and refresh token
+    6. send them in cookies
+    */
 
-export {registerUser}
+    const {email, username, password} = req.body
+    if( !username || !email ){
+        throw new ApiError(400, "either of username or email is required")
+    }
+
+    await User.findOne({
+        $or: [{ username }, { email }]            // can be logged in by using either of them
+    })
+})
+
+
+export {
+    registerUser,
+    loginUser
+}
